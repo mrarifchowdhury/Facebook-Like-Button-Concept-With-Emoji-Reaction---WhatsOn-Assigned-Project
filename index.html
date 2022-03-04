@@ -91,14 +91,13 @@ padding: 10px 50px 10px 50px ;
 }
 
 
-
 button:hover{
 background:#f2f4f6;
 }
 
 body .main:hover div.hover_button{
-
 display:flex;
+transition: 3s;
 }
 
 button.liked{
@@ -157,9 +156,11 @@ animation: mymove 0.5s ease-in-out;
     <span class="icon">Like</span> 
     </button>
 
-  <div class="hover_button">
+  <div class="hover_button" id="hover_button">
     <button id="like_one" onclick="liked()" title="Like" > 
     <i class="fa fa-thumbs-up"></i> 
+ 
+
  
     </button>
     <button id="love" onclick="loved()" title="Love" > 
@@ -195,7 +196,7 @@ animation: mymove 0.5s ease-in-out;
 var reaction = 0;
 
 function liked() {
-
+   document.getElementById("hover_button").style.display="flex";
   var element = document.getElementById("like");
   console.log("liked");
   if(reaction == 1){
@@ -212,8 +213,9 @@ function liked() {
       element.classList.toggle("liked");
       document.getElementById("like_num").innerHTML = 1;
       document.getElementById("love_num").innerHTML = 0;
-        document.getElementById("haha_num").innerHTML = 0;
+      document.getElementById("haha_num").innerHTML = 0;
       document.getElementById("sad_num").innerHTML = 0;
+      document.getElementById("hover_button").style.display="none";
   }
 
 }
@@ -253,6 +255,23 @@ function sadd() {
         document.getElementById("haha_num").innerHTML = 0;
 
 }
+
+document.getElementById("like_one").addEventListener("click", function() {
+  document.getElementById("hover_button").style.display="none";
+});
+
+document.getElementById("love").addEventListener("click", function() {
+  document.getElementById("hover_button").style.display="none";
+});
+
+document.getElementById("haha").addEventListener("click", function() {
+  document.getElementById("hover_button").style.display="none";
+});
+
+document.getElementById("sad").addEventListener("click", function() {
+  document.getElementById("hover_button").style.display="none";
+});
+
 
 
 
