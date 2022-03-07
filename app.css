@@ -1,0 +1,140 @@
+
+*{
+padding:0;
+margin:0;
+}
+
+
+body .main-section{
+border:1px solid #fff;
+margin-top:50px;
+position:relative;
+
+}
+
+body .main{
+border:1px solid #fff;
+width:180px;
+margin-left:55px;
+height:90px;
+position:absolute;
+}
+
+.count_reaction{
+margin-top:110px;
+margin-left:55px;
+font-size:25px;
+}
+.count_reaction span{
+padding-right:20px;
+color:blue;
+font-weight:lighter;
+font-size:30px;
+}
+
+
+
+body .main .hover_button{
+border-radius:10px;
+padding:2px 2px ;
+background:#D3D3D3;
+position:absolute;
+display:none;
+align-items:center;
+justify-content:center;
+margin-left:-13px;
+}
+body .main .hover_button i{
+font-size:20px;
+}
+body .main .hover_button button{
+padding: 9px 13px 9px 13px ;
+background: papayawhip;
+border:2px solid papayawhip;
+border-radius:50%;
+margin-right:8px;
+}
+
+body .main .hover_button button:hover{
+border:2px solid skyblue;
+}
+
+body .main #like{
+position:absolute;
+margin-left:14px;
+margin-top:49px;
+}
+
+body .main #like{
+padding: 10px 50px 10px 50px ;
+border-top:1.5px solid #f2f4f6;;
+border-bottom:1.5px solid #f2f4f6;
+}
+
+
+button{
+background: #FFFFF7;
+border:unset;
+outline:0;
+font-size:18px;
+cursor:pointer;
+color:#65676b;
+padding: 10px 50px 10px 50px ;
+}
+
+
+button:hover{
+background:#f2f4f6;
+}
+
+body .main:hover div.hover_button{
+display:flex;
+transition: 3s;
+}
+
+button.liked{
+color: #0571ed;
+}
+
+button.liked i{
+animation: mymove 0.5s ease-in-out;
+}
+
+
+
+button.loved{
+color: #a83f39;
+}
+
+button.loved i{
+animation: mymove 0.5s ease-in-out;
+}
+
+
+button.hahad{
+color: orangered;
+}
+
+button.hahad i{
+animation: mymove 0.5s ease-in-out;
+}
+
+button.sadd{
+color: deepskyblue;
+}
+
+button.sadd i{
+animation: mymove 0.5s ease-in-out;
+}
+
+
+@keyframes mymove{
+100%{
+ transform: rotate(-15deg) scale(1.3);
+ filter: blur(0.5px);
+ }
+}
+
+#like_one_emoji_text,#love_emoji_text,#haha_emoji_text,#sad_emoji_text{
+display: none;
+}

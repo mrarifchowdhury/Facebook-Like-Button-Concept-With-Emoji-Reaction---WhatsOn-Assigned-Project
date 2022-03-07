@@ -2,181 +2,44 @@
 <html>
 <head>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-
-*{
-padding:0;
-margin:0;
-}
-
-body{
-
-}
-
-body .main-section{
-border:1px solid #fff;
-margin-top:50px;
-position:relative;
-
-}
-
-body .main{
-border:1px solid #fff;
-width:170px;
-margin-left:55px;
-height:90px;
-position:absolute;
-}
-
-.count_reaction{
-margin-top:110px;
-margin-left:55px;
-font-size:25px;
-}
-.count_reaction span{
-padding-right:20px;
-color:blue;
-font-weight:lighter;
-font-size:30px;
-}
-
-
-
-body .main .hover_button{
-border-radius:10px;
-padding:2px 2px ;
-background:#D3D3D3;
-position:absolute;
-display:none;
-align-items:center;
-justify-content:center;
-margin-left:-13px;
-}
-body .main .hover_button i{
-font-size:20px;
-}
-body .main .hover_button button{
-padding: 9px 13px 9px 13px ;
-background: papayawhip;
-border:2px solid papayawhip;
-border-radius:50%;
-margin-right:8px;
-}
-
-body .main .hover_button button:hover{
-border:2px solid skyblue;
-}
-
-body .main #like{
-position:absolute;
-margin-left:14px;
-margin-top:49px;
-}
-
-body .main #like{
-padding: 10px 50px 10px 50px ;
-border-top:1.5px solid #f2f4f6;;
-border-bottom:1.5px solid #f2f4f6;
-}
-
-
-button{
-background: #FFFFF7;
-border:unset;
-outline:0;
-font-size:18px;
-cursor:pointer;
-color:#65676b;
-padding: 10px 50px 10px 50px ;
-}
-
-
-button:hover{
-background:#f2f4f6;
-}
-
-body .main:hover div.hover_button{
-display:flex;
-transition: 3s;
-}
-
-button.liked{
-color: #0571ed;
-}
-
-button.liked i{
-animation: mymove 0.5s ease-in-out;
-}
-
-
-
-button.loved{
-color: #0571ed;
-}
-
-button.loved i{
-animation: mymove 0.5s ease-in-out;
-}
-
-
-button.hahad{
-color: #0571ed;
-}
-
-button.hahad i{
-animation: mymove 0.5s ease-in-out;
-}
-
-button.sadd{
-color: #0571ed;
-}
-
-button.sadd i{
-animation: mymove 0.5s ease-in-out;
-}
-
-
-@keyframes mymove{
-100%{
- transform: rotate(-15deg) scale(1.3);
- filter: blur(0.5px);
- }
-}
-
-
-</style>
+<link rel="stylesheet" type="text/css" href="app.css">
 </head>
+
 <body  style="min-width: 300px;">
 
 <div class="main-section">
-<div class="main">
+  
+  <div class="main">
 
     <button id="like" class="" onclick="liked()" > 
-    <i class="fa fa-thumbs-up"></i> 
-    <span class="icon">Like</span> 
+    <i id="like_emoji" class="fa fa-thumbs-up"></i> 
+    <span id="like_emoji_text">Like</span> 
     </button>
 
-  <div class="hover_button" id="hover_button">
-    <button id="like_one" onclick="liked()" title="Like" > 
-    <i class="fa fa-thumbs-up"></i> 
- 
+    <div class="hover_button" id="hover_button">
+      <button id="like_one" onclick="liked()" title="Like" > 
+      <i id="like_one_emoji" class="fa fa-thumbs-up"></i> 
+      <span id="like_one_emoji_text">Like</span>
+      </button>
 
- 
-    </button>
-    <button id="love" onclick="loved()" title="Love" > 
-    <i class="fa fa-heart"></i> 
- 
-    </button>
-    <button id="haha" onclick="hahad()" title="Haha" > 
-    <i class=" fa fa-smile-o"></i> 
-    </button>
-    <button id="sad" onclick="sadd()" title="Sad" > 
-    <i class="fa fa-frown-o"></i> 
-  
-    </button>
+      <button id="love" onclick="loved()" title="Love" > 
+      <i id="love_emoji" class="fa fa-heart"></i> 
+      <span id="love_emoji_text">Love</span>
+      </button>
+
+      <button id="haha" onclick="hahad()" title="Haha" > 
+      <i id="haha_emoji" class=" fa fa-smile-o"></i> 
+      <span id="haha_emoji_text">Haha</span>
+      </button>
+
+      <button id="sad" onclick="sadd()" title="Sad" > 
+      <i id="sad_emoji" class="fa fa-frown-o"></i> 
+      <span id="sad_emoji_text">Sad</span>
+      </button>
+    </div>
+
   </div>
 
-</div>
 </div>
 
 
@@ -186,96 +49,9 @@ animation: mymove 0.5s ease-in-out;
   <i class="fa fa-heart"></i>  Love : <span id="love_num"> 0 </span>
   <i class="fa fa-smile-o"></i>  Haha : <span id="haha_num"> 0 </span>
   <i class="fa fa-frown-o"></i>  Sad : <span id="sad_num"> 0 </span> 
-<br>
-<br>
 </div>
 
-
-<script>
-
-var reaction = 0;
-
-function liked() {
-   document.getElementById("hover_button").style.display="flex";
-  var element = document.getElementById("like");
-  console.log("liked");
-  if(reaction == 1){
-      console.log("liked4");
-      reaction=0;
-      element.classList.remove("liked","loved","hahad", "sadd","liked_one");
-      document.getElementById("love_num").innerHTML = 0;
-      document.getElementById("like_num").innerHTML = 0;
-      document.getElementById("haha_num").innerHTML = 0;
-      document.getElementById("sad_num").innerHTML = 0;
-  }else{
-    console.log("liked3");
-      reaction = 1;
-      element.classList.toggle("liked");
-      document.getElementById("like_num").innerHTML = 1;
-      document.getElementById("love_num").innerHTML = 0;
-      document.getElementById("haha_num").innerHTML = 0;
-      document.getElementById("sad_num").innerHTML = 0;
-      document.getElementById("hover_button").style.display="none";
-  }
-
-}
-
-function loved() {
-    reaction =1;
-    
-    var element = document.getElementById("like");
-    console.log("loved2");
-    element.classList.toggle("loved");
-    document.getElementById("love_num").innerHTML = 1 -   document.getElementById("love_num").innerHTML;
-  document.getElementById("like_num").innerHTML = 0;
-        document.getElementById("haha_num").innerHTML = 0;
-      document.getElementById("sad_num").innerHTML = 0;
-}
-
-function hahad() {
-    reaction =1;
-    var element = document.getElementById("like");
-    console.log("haha");
-    element.classList.toggle("hahad");
-    document.getElementById("haha_num").innerHTML = 1 -   document.getElementById("haha_num").innerHTML;
-  document.getElementById("like_num").innerHTML = 0;
-          document.getElementById("love_num").innerHTML = 0;
-      document.getElementById("sad_num").innerHTML = 0;
-
-}
-
-function sadd() {
-    reaction =1;
-    var element = document.getElementById("like");
-    console.log("sad");
-    element.classList.toggle("sadd");
-    document.getElementById("sad_num").innerHTML = 1 -  document.getElementById("sad_num").innerHTML;
-  document.getElementById("like_num").innerHTML = 0;
-          document.getElementById("love_num").innerHTML = 0;
-        document.getElementById("haha_num").innerHTML = 0;
-
-}
-
-document.getElementById("like_one").addEventListener("click", function() {
-  document.getElementById("hover_button").style.display="none";
-});
-
-document.getElementById("love").addEventListener("click", function() {
-  document.getElementById("hover_button").style.display="none";
-});
-
-document.getElementById("haha").addEventListener("click", function() {
-  document.getElementById("hover_button").style.display="none";
-});
-
-document.getElementById("sad").addEventListener("click", function() {
-  document.getElementById("hover_button").style.display="none";
-});
-
-
-
-
-</script>
+<script type="text/javascript" src="app.js"></script>
 
 </body>
 </html>
